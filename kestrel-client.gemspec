@@ -55,6 +55,7 @@ Gem::Specification.new do |s|
   if ENV['JAVA_GEM'] or defined?(::JRUBY_VERSION)
     s.platform = "java"
     s.add_runtime_dependency(%q<jruby-memcached>, [">= 0.5.5"]) 
+    s.require_paths += %w[java]
   else
     s.add_runtime_dependency(%q<memcached>, [">= 1.8.0"]) 
   end
