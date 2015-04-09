@@ -57,6 +57,7 @@ Gem::Specification.new do |s|
     s.add_runtime_dependency(%q<jruby-memcached>, [">= 0.5.5"]) 
     s.require_paths += %w[java]
   else
+    s.platform = "ruby"
     s.add_runtime_dependency(%q<memcached>, [">= 1.8.0"]) 
   end
 end
