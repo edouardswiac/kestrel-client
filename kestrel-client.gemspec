@@ -52,7 +52,11 @@ Gem::Specification.new do |s|
   s.rubygems_version = "1.8.15"
   s.summary = "JRuby Kestrel client"
 
-  s.add_runtime_dependency(%q<jruby-memcached>, [">= 0.5.5"]) if RUBY_PLATFORM == "java"
-
+  if ENV['JAVA_GEM'] or defined?(::JRUBY_VERSION)
+    s.platform = "java"
+    s.add_runtime_dependency(%q<jruby-memcached>, [">= 0.5.5"]) 
+  else
+    s.add_runtime_dependency(%q<memcached>, [">= 1.8.0"]) 
+  end
 end
 
